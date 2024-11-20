@@ -10,6 +10,7 @@ import java.io.IOException;
 public class Arquivo {
     public static void criar(String nome){
         File arquivo = new File("/workspaces/aed-II/atv2/atv2_recursao/src/arquivos/" + nome + ".txt");
+        // File arquivo = new File("/src/arquivos/" + nome + ".txt");
         try {
             arquivo.createNewFile();
             System.out.println("Arquivo criado com sucesso!");
@@ -31,7 +32,8 @@ public class Arquivo {
     }
 
     public static int[] arqParaListaInt(String nome) throws IOException{
-        FileReader fr = new FileReader("/workspaces/aed-II/atv2/atv2_recursao/src/arquivos/" + nome + ".txt");
+        FileReader fr = new FileReader("C:\\Users\\User\\Documents\\IFMA\\AED-II\\atv2\\atv2_recursao\\src\\arquivos\\arquivo1.txt");
+        //FileReader fr = new FileReader("/workspaces/aed-II/atv2/atv2_recursao/src/arquivos/" + nome + ".txt");
         BufferedReader br = new BufferedReader(fr);
         
         String read = br.readLine();
