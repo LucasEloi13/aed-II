@@ -1,10 +1,11 @@
 package questao02;
 
-public class Run {
-    public static void main(String[] args) {
-        String string = "pneumoultramicroscopicossilicovulcanoconiótico";
+import utils.Arquivo;
 
-        System.out.println(Classe2.contarCaracteres(string));
+public class Run {
+    public static void main(String[] args) throws Exception {
+
+        System.out.println(Classe2.contarCaracteres(Arquivo.lerString("arquivoQ2")));
 
     }
 }

@@ -48,4 +48,16 @@ public class Arquivo {
         
         return listaInt;
     }
+
+    public static String lerString(String nome) throws IOException{
+        // FileReader fr = new FileReader("C:\\Users\\User\\Documents\\IFMA\\AED-II\\atv2\\atv2_recursao\\src\\arquivos\\arquivo1.txt");
+        FileReader fr = new FileReader("/workspaces/aed-II/atv2/atv2_recursao/src/arquivos/" + nome + ".txt");
+        BufferedReader br = new BufferedReader(fr);
+        
+        String read = br.readLine();
+        br.close();
+
+        return read.trim();
+        
+    }
 }
