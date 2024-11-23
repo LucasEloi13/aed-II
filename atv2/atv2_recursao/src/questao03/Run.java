@@ -4,14 +4,13 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 import utils.Arquivo;
+import utils.ListaEncadeadaDupla;
 
 public class Run {
     public static void main(String[] args) throws IOException {
-        LinkedList<Integer> listaInteiros = new LinkedList<>();
+        ListaEncadeadaDupla<Integer> listaInteiros = new ListaEncadeadaDupla<>();
 
-        for (int i : Arquivo.arqParaListaInt("arquivoQ3")) {
-            listaInteiros.add(i);
-        }
+        listaInteiros = Arquivo.arqParaListaInt("arquivoQ3");
 
         int dinheiro = listaInteiros.get(0);
         int unidade = listaInteiros.get(1);

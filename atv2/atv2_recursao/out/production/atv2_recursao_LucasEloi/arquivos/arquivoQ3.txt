@@ -1,0 +1,3 @@
+20;3;5
+
+!! Odem do input: dinheiro; unidade; troca !!

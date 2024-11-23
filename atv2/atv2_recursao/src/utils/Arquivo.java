@@ -1,5 +1,6 @@
 package utils;
 
+import utils.ListaEncadeadaDupla;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -9,8 +10,7 @@ import java.io.IOException;
 
 public class Arquivo {
     public static void criar(String nome){
-        File arquivo = new File("/workspaces/aed-II/atv2/atv2_recursao/src/arquivos/" + nome + ".txt");
-        // File arquivo = new File("/src/arquivos/" + nome + ".txt");
+         File arquivo = new File("src/arquivos/"+ nome + ".txt");
         try {
             arquivo.createNewFile();
             System.out.println("Arquivo criado com sucesso!");
@@ -20,7 +20,7 @@ public class Arquivo {
     }
 
     public static void popularListaInt(String nome) throws IOException{
-        FileWriter fw = new FileWriter("/workspaces/aed-II/atv2/atv2_recursao/src/arquivos/" + nome + ".txt");
+        FileWriter fw = new FileWriter("src/arquivos/"+ nome + ".txt");
         BufferedWriter bw = new BufferedWriter(fw);
 
         for (int i = 1; i < 31; i++) 
@@ -31,27 +31,25 @@ public class Arquivo {
         bw.close();
     }
 
-    public static int[] arqParaListaInt(String nome) throws IOException{
-        // FileReader fr = new FileReader("C:\\Users\\User\\Documents\\IFMA\\AED-II\\atv2\\atv2_recursao\\src\\arquivos\\arquivo1.txt");
-        FileReader fr = new FileReader("/workspaces/aed-II/atv2/atv2_recursao/src/arquivos/" + nome + ".txt");
+    public static ListaEncadeadaDupla<Integer> arqParaListaInt(String nome) throws IOException{
+        FileReader fr = new FileReader("src/arquivos/"+ nome + ".txt");
         BufferedReader br = new BufferedReader(fr);
         
         String read = br.readLine();
         String[] lista = read.split(";");
 
-        int[] listaInt = new int[lista.length];
+        ListaEncadeadaDupla<Integer> listaInteiros = new ListaEncadeadaDupla<>();
         for (int i = 0; i < lista.length; i++) {
-            listaInt[i] = Integer.parseInt(lista[i]);
+            listaInteiros.inserir(Integer.parseInt(lista[i]));
         }
 
         br.close();
         
-        return listaInt;
+        return listaInteiros;
     }
 
     public static String lerString(String nome) throws IOException{
-        // FileReader fr = new FileReader("C:\\Users\\User\\Documents\\IFMA\\AED-II\\atv2\\atv2_recursao\\src\\arquivos\\arquivo1.txt");
-        FileReader fr = new FileReader("/workspaces/aed-II/atv2/atv2_recursao/src/arquivos/" + nome + ".txt");
+        FileReader fr = new FileReader("src/arquivos/"+ nome + ".txt");
         BufferedReader br = new BufferedReader(fr);
         
         String read = br.readLine();

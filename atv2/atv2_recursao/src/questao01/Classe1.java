@@ -2,14 +2,14 @@ package questao01;
 
 //  import utils.*;
 
-import java.util.LinkedList;
+import utils.ListaEncadeadaDupla;
 
 public class Classe1 {
     static int soma_pares = 0;
     static int soma_impares = 0;
 
-    public static int processar(LinkedList<Integer> list, int index, int somaPares, int somaImpares){
-        if (index >= list.size()) {
+    public static int processar(ListaEncadeadaDupla<Integer> list, int index, int somaPares, int somaImpares) {
+        if (index >= list.tamanho()) {
             return somaPares * somaImpares;
         }
 
@@ -23,11 +23,11 @@ public class Classe1 {
         return processar(list, index + 1, somaPares, somaImpares);
     }
 
-    public static int calcularSoma(LinkedList<Integer> list) {
-        if (list == null || list.isEmpty()) {
+    public static int calcularSoma(ListaEncadeadaDupla<Integer> list) {
+        if (list == null || list.estaVazia()) {
             return 0;
         }
-        if (list.size() == 1) {
+        if (list.tamanho() == 1) {
             int num = list.get(0);
             if (num % 2 == 0) {
                 soma_pares += num;
@@ -37,13 +37,11 @@ public class Classe1 {
             return 0;
         }
 
+        int mid = list.tamanho() / 2;
 
-        int mid = list.size() / 2;
-
-
-        LinkedList<Integer> left = new LinkedList<>(list.subList(0, mid));
-        LinkedList<Integer> right = new LinkedList<>(list.subList(mid, list.size()));
-
+        // Divide a lista em duas partes
+        ListaEncadeadaDupla<Integer> left = list.subLista(0, mid);
+        ListaEncadeadaDupla<Integer> right = list.subLista(mid, list.tamanho());
 
         calcularSoma(left);
         calcularSoma(right);
