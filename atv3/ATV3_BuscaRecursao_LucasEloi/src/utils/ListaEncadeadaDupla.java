@@ -1,6 +1,5 @@
 package utils;
 
-
 public class ListaEncadeadaDupla<T> {
     private Node<T> head;
     private Node<T> last;
@@ -48,7 +47,7 @@ public class ListaEncadeadaDupla<T> {
     public void imprimir() {
         Node<T> tmpNode = head;
         while (tmpNode != null) {
-            System.out.println(tmpNode.data + " ");
+            System.out.printf(tmpNode.data + " ");
             tmpNode = tmpNode.next;
         }
     }
@@ -66,12 +65,31 @@ public class ListaEncadeadaDupla<T> {
     public T get(int index) {
         Node<T> tmpNode = head;
         int count = 0;
+
         while (tmpNode != null) {
             if (count == index) return tmpNode.data;
             count++;
             tmpNode = tmpNode.next;
         }
+        
         return null;
+    }
+
+    public void set(int index, T newValue) {
+        Node<T> tmpNode = head;
+        int count = 0;
+    
+        while (tmpNode != null) {
+            if (count == index) {
+                tmpNode.data = newValue;
+                return;
+            }
+            count++;
+            tmpNode = tmpNode.next;
+        }
+    
+        // Caso o índice seja inválido (fora do intervalo da lista)
+        throw new IndexOutOfBoundsException("Índice fora do intervalo: " + index);
     }
 
     public ListaEncadeadaDupla<T> subLista(int inicio, int fim) {
